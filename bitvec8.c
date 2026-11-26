@@ -48,7 +48,7 @@ bitvec8 bitvec8_add(bitvec8 x, bitvec8 y) {
 
 // Return the negation of a bitvec8, as a bitvec8.
 bitvec8 bitvec8_negate(bitvec8 x) {
-
+  return bitvec8_add(~x,1);
 }
 
 // Multiply, and possibly truncate, two bitvec8 values

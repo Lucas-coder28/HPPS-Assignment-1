@@ -49,11 +49,21 @@ void test_bitvec8_add(void) {
   printf("Test %s passed!\n", __func__);
 }
 
+void test_bitvec8_negate(void) {
+  assert(bitvec8_negate(5) == 251);
+  assert(bitvec8_negate(1) == 255);
+  assert(bitvec8_negate(0) == 0);
+  assert(bitvec8_negate(255) == 1);
+  assert(bitvec8_negate(128) == 128);
+  printf("Test %s passed!\n", __func__);
+}
+
 int main(void) {
   test_bitvec8_from_int();
   test_bitvec8_to_int();
   test_bitvec8_print();
   test_bitvec8_add();
+  test_bitvec8_negate();
 
   printf("All tests passed!\n");
   return 0;
