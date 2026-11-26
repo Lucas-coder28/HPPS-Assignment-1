@@ -40,8 +40,8 @@ void test_bitvec8_add(void) {
   assert(bitvec8_add(82, 12) == 94);
   assert(bitvec8_add(255, 1) == 0);
   assert(bitvec8_add(255, 255) == 254);
-  assert(bitvec8_add(127, 1) == 128);
   assert(bitvec8_add(34, -3) == 31);
+  assert((int8_t)bitvec8_add(-2, -3) == -5); // 251 unsigned, -5 signed
   printf("Test %s passed!\n", __func__);
 }
 
