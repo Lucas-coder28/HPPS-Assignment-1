@@ -41,7 +41,7 @@ void test_bitvec8_add(void) {
   assert(bitvec8_add(255, 1) == 0);
   assert(bitvec8_add(255, 255) == 254);
   assert(bitvec8_add(127, 1) == 128);
-  assert(bitvec8_add(15, 1) == 16);
+  assert(bitvec8_add(34, -3) == 31);
   printf("Test %s passed!\n", __func__);
 }
 
