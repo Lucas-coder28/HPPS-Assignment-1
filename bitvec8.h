@@ -33,3 +33,12 @@ bool bitvec8_none(bitvec8 v);
 
 // Check if exactly one bit is set
 bool bitvec8_one(bitvec8 v);
+
+// Add two bitvec8 values
+bitvec8 bitvec8_add(bitvec8 x, bitvec8 y);
+
+// Return the negation of a bitvec8
+bitvec8 bitvec8_negate(bitvec8 x);
+
+// Multiply two bitvec8 values
+bitvec8 bitvec8_mul(bitvec8 x, bitvec8 y);
