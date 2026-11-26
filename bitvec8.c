@@ -20,10 +20,30 @@ void bitvec8_print(bitvec8 v) {
   putchar('0' + (v & 1));
 }
 
+struct add_result {
+    bitvec8 s;
+    bitvec8 c;
+};
+
+struct add_result sum_and_carry(bitvec8 x, bitvec8 y) {
+  struct add_result result;
+  result.s = x ^ y;
+  result.c = (x & y) << 1;
+  return result;
+}
+
 // Add, and possibly truncate, two bitvec8 values
 // into a bitvec8 value.
 bitvec8 bitvec8_add(bitvec8 x, bitvec8 y) {
-
+  struct add_result r = sum_and_carry(x, y);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  r = sum_and_carry(r.s, r.c);
+  return r.s;
 }
 
 // Return the negation of a bitvec8, as a bitvec8.

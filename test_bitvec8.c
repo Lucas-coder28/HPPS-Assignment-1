@@ -34,10 +34,26 @@ void test_bitvec8_print(void) {
   printf("Test %s!\n", __func__);
 }
 
+
+void test_bitvec8_add(void) {
+  assert(bitvec8_add(82, 12) == 94);
+  assert(bitvec8_add(255, 1) == 0);
+  printf("82 + 12 = ");
+  bitvec8_print(bitvec8_add(82, 12));
+  printf("\n");
+
+  printf("255 + 1 = ");
+  bitvec8_print(bitvec8_add(255, 1));
+  printf("\n");
+
+  printf("Test %s passed!\n", __func__);
+}
+
 int main(void) {
   test_bitvec8_from_int();
   test_bitvec8_to_int();
   test_bitvec8_print();
+  test_bitvec8_add();
 
   printf("All tests passed!\n");
   return 0;
