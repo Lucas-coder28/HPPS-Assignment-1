@@ -36,16 +36,12 @@ void test_bitvec8_print(void) {
 
 
 void test_bitvec8_add(void) {
+  assert(bitvec8_add(1, 1) == 2);
   assert(bitvec8_add(82, 12) == 94);
   assert(bitvec8_add(255, 1) == 0);
-  printf("82 + 12 = ");
-  bitvec8_print(bitvec8_add(82, 12));
-  printf("\n");
-
-  printf("255 + 1 = ");
-  bitvec8_print(bitvec8_add(255, 1));
-  printf("\n");
-
+  assert(bitvec8_add(255, 255) == 254);
+  assert(bitvec8_add(127, 1) == 128);
+  assert(bitvec8_add(15, 1) == 16);
   printf("Test %s passed!\n", __func__);
 }
 
