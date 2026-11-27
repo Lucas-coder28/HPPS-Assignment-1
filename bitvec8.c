@@ -51,8 +51,29 @@ bitvec8 bitvec8_negate(bitvec8 x) {
   return bitvec8_add(~x,1);
 }
 
+
+bool bitvec8_get(bitvec8 v, int i) {
+  return ((v>>i) & 1);
+}
+
 // Multiply, and possibly truncate, two bitvec8 values
 // into a bitvec8 value. 
+
 bitvec8 bitvec8_mul(bitvec8 x, bitvec8 y) {
-    
+    bitvec8 z = x & bitvec8_negate(bitvec8_get(y, 0));
+    z = bitvec8_add(
+        (x << 1) & bitvec8_negate(bitvec8_get(y, 1)), z);
+    z = bitvec8_add(
+        (x << 2) & bitvec8_negate(bitvec8_get(y, 2)), z);
+    z = bitvec8_add(
+        (x << 3) & bitvec8_negate(bitvec8_get(y, 3)), z);
+    z = bitvec8_add(
+        (x << 4) & bitvec8_negate(bitvec8_get(y, 4)), z);
+    z = bitvec8_add(
+        (x << 5) & bitvec8_negate(bitvec8_get(y, 5)), z);
+    z = bitvec8_add(
+        (x << 6) & bitvec8_negate(bitvec8_get(y, 6)), z);
+    z = bitvec8_add(
+        (x << 7) & bitvec8_negate(bitvec8_get(y, 7)), z);
+    return z;
 }

@@ -37,6 +37,8 @@ void test_bitvec8_print(void) {
 
 void test_bitvec8_add(void) {
   assert(bitvec8_add(1, 1) == 2);
+  assert(bitvec8_add(0, 1) == 1);
+  assert(bitvec8_add(0, 0) == 0);
   assert(bitvec8_add(82, 12) == 94);
   assert(bitvec8_add(255, 1) == 0);
   assert(bitvec8_add(255, 255) == 254);
@@ -54,13 +56,23 @@ void test_bitvec8_negate(void) {
   printf("Test %s passed!\n", __func__);
 }
 
+void test_bitvec8_mul(void) {
+  assert(bitvec8_mul(0, 0) == 0);
+  assert(bitvec8_mul(10, 7) == 70);
+  assert(bitvec8_mul(7, 10) == 70);
+  assert(bitvec8_mul(255, 1) == 255);
+  assert(bitvec8_mul(255, 255) == 1);
+  assert(bitvec8_mul(1, 1) == 1);
+  printf("Test %s passed!\n", __func__);
+}
+
 int main(void) {
   test_bitvec8_from_int();
   test_bitvec8_to_int();
   test_bitvec8_print();
   test_bitvec8_add();
   test_bitvec8_negate();
-
+  test_bitvec8_mul();
   printf("All tests passed!\n");
   return 0;
 
